@@ -12,11 +12,29 @@ public class BukuCetak extends Buku {
         // Penutup constructor
     }
 
-    // Getter untuk mengambil berat buku
-    public int getBerat() {
-        // Mengembalikan nilai berat
-        return berat;
-        // Penutup method getBerat
+    // Method untuk menghitung ongkos kirim: Rp5.000 per 500 gram (dibulatkan ke atas)
+    public int ongkir() {
+        // 400 gram -> 1 x 5000 = Rp5.000, 750 gram -> 2 x 5000 = Rp10.000
+        return (berat + 499) / 500 * 5000;
+        // Penutup method ongkir
+    }
+
+    // Menandakan method ini menimpa method abstract dari Buku
+    @Override
+    // Keterangan buku cetak: berat dan ongkir
+    public String keterangan() {
+        // Contoh hasil: "750 gram, ongkir Rp10.000"
+        return berat + " gram, ongkir " + formatRupiah(ongkir());
+        // Penutup method keterangan
+    }
+
+    // Menandakan method ini menimpa method abstract dari Buku
+    @Override
+    // Harga akhir buku cetak = harga + ongkir
+    public int hargaAkhir() {
+        // Menjumlahkan harga dasar dengan ongkos kirim
+        return getHarga() + ongkir();
+        // Penutup method hargaAkhir
     }
 // Penutup class BukuCetak
 }

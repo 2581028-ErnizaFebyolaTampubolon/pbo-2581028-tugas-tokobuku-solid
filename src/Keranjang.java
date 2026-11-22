@@ -20,14 +20,14 @@ public class Keranjang {
         // Penutup method getIsi
     }
 
-    // Method untuk menghitung total harga semua buku
+    // Method untuk menghitung total harga akhir semua buku
     public int hitungTotal() {
         // Variabel penampung total, dimulai dari 0
         int total = 0;
         // Perulangan untuk setiap buku di dalam keranjang
         for (Buku buku : isi) {
-            // Menambahkan harga buku ke total
-            total += buku.getHarga();
+            // Menambahkan harga akhir buku (sudah termasuk ongkir/diskon) ke total
+            total += buku.hargaAkhir();
             // Penutup perulangan for
         }
         // Mengembalikan hasil total

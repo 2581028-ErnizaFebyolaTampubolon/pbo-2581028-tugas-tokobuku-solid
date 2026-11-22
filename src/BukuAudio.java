@@ -12,11 +12,22 @@ public class BukuAudio extends Buku implements BisaDiunduh {
         // Penutup constructor
     }
 
-    // Getter untuk mengambil durasi audio
-    public int getDurasiMenit() {
-        // Mengembalikan nilai durasiMenit
-        return durasiMenit;
-        // Penutup method getDurasiMenit
+    // Menandakan method ini menimpa method abstract dari Buku
+    @Override
+    // Keterangan buku audio: durasi dan diskon
+    public String keterangan() {
+        // Contoh hasil: "240 menit, diskon 10%"
+        return durasiMenit + " menit, diskon 10%";
+        // Penutup method keterangan
+    }
+
+    // Menandakan method ini menimpa method abstract dari Buku
+    @Override
+    // Harga akhir buku audio = harga dikurangi diskon 10%
+    public int hargaAkhir() {
+        // Dikali 90 lalu dibagi 100 (sisa 90% dari harga)
+        return getHarga() * 90 / 100;
+        // Penutup method hargaAkhir
     }
 
     // Menandakan method ini mengisi kontrak dari interface BisaDiunduh

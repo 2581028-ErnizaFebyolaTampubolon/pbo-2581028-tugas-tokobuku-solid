@@ -1,4 +1,4 @@
-// BukuDigital turunan dari "Buku" dan bisa diunduh
+// BukuDigital turunan dari Buku dan bisa diunduh
 public class BukuDigital extends Buku implements BisaDiunduh {
     // Atribut khusus buku digital: ukuran file dalam MB
     private double ukuranMB;
@@ -12,11 +12,22 @@ public class BukuDigital extends Buku implements BisaDiunduh {
         // Penutup constructor
     }
 
-    // Getter untuk mengambil ukuran file
-    public double getUkuranMB() {
-        // Mengembalikan nilai ukuranMB
-        return ukuranMB;
-        // Penutup method getUkuranMB
+    // Menandakan method ini menimpa method abstract dari Buku
+    @Override
+    // Keterangan buku digital: ukuran file dan diskon
+    public String keterangan() {
+        // Contoh hasil: "12.5 MB, diskon 20%"
+        return ukuranMB + " MB, diskon 20%";
+        // Penutup method keterangan
+    }
+
+    // Menandakan method ini menimpa method abstract dari Buku
+    @Override
+    // Harga akhir buku digital = harga dikurangi diskon 20%
+    public int hargaAkhir() {
+        // Dikali 80 lalu dibagi 100 (sisa 80% dari harga)
+        return getHarga() * 80 / 100;
+        // Penutup method hargaAkhir
     }
 
     // Menandakan method ini mengisi kontrak dari interface BisaDiunduh
