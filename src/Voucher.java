@@ -23,8 +23,14 @@ public class Voucher implements MetodeBayar {
     @Override
     // Menghitung total setelah dipotong voucher
     public int totalBayar(int totalBelanja) {
-        // Langsung dikurangi nilai voucher (versi awal)
-        return totalBelanja - nilai;
+        // VERSI SALAH (melanggar LSP):
+        // keranjang kedua Rp64.000 - Rp100.000 = Rp-36.000 (negatif)
+        // return totalBelanja - nilai;
+
+        // VERSI BENAR (patuh kontrak):
+        // Math.max memilih angka terbesar antara 0 dan hasil pengurangan,
+        // jadi hasilnya tidak pernah negatif (minimal 0)
+        return Math.max(0, totalBelanja - nilai);
         // Penutup method totalBayar
     }
 // Penutup class Voucher
