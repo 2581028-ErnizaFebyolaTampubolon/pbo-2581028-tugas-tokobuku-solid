@@ -14,8 +14,8 @@ public class Voucher implements MetodeBayar {
     @Override
     // Mengembalikan nama metode
     public String nama() {
-        // Nama yang tampil di struk, contoh: "Voucher 100000"
-        return "Voucher " + nilai;
+        // Nama yang tampil di struk, contoh: "Voucher Rp100.000"
+        return "Voucher " + Buku.formatRupiah(nilai);
         // Penutup method nama
     }
 

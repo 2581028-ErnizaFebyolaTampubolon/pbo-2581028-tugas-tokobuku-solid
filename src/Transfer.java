@@ -6,7 +6,7 @@ public class Transfer implements MetodeBayar {
     // Mengembalikan nama metode
     public String nama() {
         // Nama yang tampil di struk
-        return "Transfer";
+        return "Transfer (+Rp2.500)";
         // Penutup method nama
     }
 
